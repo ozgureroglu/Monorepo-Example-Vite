@@ -1,0 +1,27 @@
+{
+  "name": "Monorepo-Example-Vite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "workspaces": [
+    "@app/**"
+  ],
+  "scripts": {
+    "build": "pnpm --parallel --filter \"./**\" build",
+    "buildwatch": "pnpm --parallel --filter \"./**\" buildwatch",
+    "serve:remotes": "pnpm --parallel --filter \"./@app/app1\" --filter \"./@app/app2\" --filter \"./@app/app3\" serve",
+    "preview": "pnpm --recursive --parallel run preview",
+    "dev": "pnpm --recursive --parallel --stream run dev",
+    "dev:host": "pnpm --filter \"./@app/host\" dev",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "pnpm --parallel --filter \"./**\" run clean",
+    "stop": "pnpm --parallel --filter \"./**\" stop"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@originjs/vite-plugin-federation": "^1.2.2",
+    "kill-port": "^2.0.1"
+  }
+}
